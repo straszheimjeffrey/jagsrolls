@@ -1,0 +1,211 @@
+/* Jags Rolls Style Sheet */
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: small;
+}
+
+#main-title-area {
+    text-align: center;
+    padding: 10px 1px;
+}
+
+.main-section {
+    width: 90%;
+    margin: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #DFE3FC;
+    padding: 2px;
+}
+
+#title-page-header {
+	text-align: center;
+	width: 50%;
+}
+
+td.content {
+	vertical-align: top;
+	padding: 3px 10px;
+}
+
+form#input-form table {
+	text-align: left;
+}
+
+form#input-form td {
+	padding: 3px;
+	white-space: nowrap;
+}
+
+input.focused {
+	background-color: #FEA;
+}
+
+#input-section ul {
+	text-align: center;
+	margin: auto;
+}
+
+.roll-table {
+    vertical-align: top;
+    padding: 1px;
+    margin: 1px 5px;
+}
+
+#rolls-left td, #rolls-right td {
+    padding: 1px 5px;
+    text-align: center;
+}
+
+#rolls-left th, #rolls-right th {
+    padding: 1px 10px;
+    text-align: center;
+    border-bottom: solid thin black;
+}
+
+.damage-table th, .damage-table td {
+    width: 25px;
+    padding: 1px 5px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.damage-table form, span {
+    margin: 0px;
+    padding: 0px;
+}
+
+.damage-table th {
+    border-bottom: solid thin black;
+}
+
+.old-round td {
+    color: #777;
+}
+
+h2 {
+    font-size: 1.2em;
+    margin: 3px 5px 5px 0px;
+}
+
+ul {
+    list-style: none;
+    list-style-position: inside;
+    padding: 0px;
+    margin: 4px 0px;
+}
+
+li {
+    margin: 3px 0px;
+}
+
+p {
+    margin: 3px 0px;
+    padding: 0px;
+}
+
+a {	margin-left: auto;
+	margin-right: auto;
+
+    border: thin solid black;
+    color: black;
+    padding-left: 2px;
+    padding-right: 2px;
+    text-decoration: none;
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #D3D2F7;
+}
+
+a:hover {
+    background-color: #F79691;
+}
+
+a.big-link {
+	display: block;
+	width: 25%;
+	padding: 1em;
+	margin: 10px auto 10px auto;
+	text-align: center; 
+}
+
+#character-section a {
+    margin: 0px 2px;
+}
+
+.damage-section a {
+	margin: 0em 0.5em;
+}
+
+a.rea-button {
+    margin: 0px 1px 0px 0px !important;
+}
+
+a.delete-button {
+    margin-left: 15px !important;
+}
+
+label {
+    margin: 0px 2px;
+}
+
+#sizer {
+    background-repeat: no-repeat;
+    padding: 0px;
+    width: 12px;
+    height: 12px;
+}
+
+.sizer-out-big {
+    background-image: url(/jagsrolls/images/little-minus.png);
+}
+
+.sizer-out-small {
+    background-image: url(/jagsrolls/images/little-plus.png);
+}
+
+.sizer-over-big {
+    background-image: url(/jagsrolls/images/little-minus-dark.png);
+}
+
+.sizer-over-small {
+    background-image: url(/jagsrolls/images/little-plus-dark.png);
+}
+
+.errorMessage {
+	color: red;
+}
+
+.indent table, .indent p, .indent ul {
+	margin-left: 2em;
+}
+
+.indent td, .indent th {
+	padding: 1px 3px 1px 3px;
+}
+
+#admin-table th, #admin-table td {
+	text-align: center;
+	padding: 2px 10px;
+}
+
+p.signature {
+	margin: 2em;
+	text-align: center;
+	font-size: x-small;
+	font-style: italic;
+}
+
+.for_whom {
+	font-size: .8em;
+	font-style: italic;
+}
+
+
+

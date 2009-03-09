@@ -1,0 +1,12 @@
+antlr-2.7.2.jar
+commons-beanutils-1.6.jar
+commons-chain-1.1.jar
+commons-logging-1.0.4.jar
+commons-logging-api-1.1.jar
+commons-validator-1.3.0.jar
+freemarker-2.3.8.jar
+jsonplugin-0.30.jar
+libs
+ognl-2.6.11.jar
+struts2-core-2.0.11.jar
+xwork-2.0.4.jar

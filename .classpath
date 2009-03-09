@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/home/jeffrey/prog/java/apache-tomcat-6.0.18/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="tomcat/WEB-INF/lib/struts2-core-2.0.11.jar" sourcepath="/home/jeffrey/prog/java/struts-2.0.11/src/core/src/main/java"/>
+	<classpathentry kind="lib" path="tomcat/WEB-INF/lib/xwork-2.0.4.jar" sourcepath="/home/jeffrey/prog/java/xwork-2.0.4/src/java"/>
+	<classpathentry kind="lib" path="tomcat/WEB-INF/lib/antlr-2.7.2.jar"/>
+	<classpathentry kind="lib" path="tomcat/WEB-INF/lib/commons-beanutils-1.6.jar"/>
+	<classpathentry kind="lib" path="tomcat/WEB-INF/lib/commons-chain-1.1.jar"/>
+	<classpathentry kind="lib" path="tomcat/WEB-INF/lib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="tomcat/WEB-INF/lib/commons-logging-api-1.1.jar"/>
+	<classpathentry kind="lib" path="tomcat/WEB-INF/lib/commons-validator-1.3.0.jar"/>
+	<classpathentry kind="lib" path="tomcat/WEB-INF/lib/freemarker-2.3.8.jar"/>
+	<classpathentry kind="lib" path="tomcat/WEB-INF/lib/jsonplugin-0.30.jar"/>
+	<classpathentry kind="lib" path="tomcat/WEB-INF/lib/ognl-2.6.11.jar"/>
+	<classpathentry kind="output" path="tomcat/WEB-INF/classes"/>
+</classpath>

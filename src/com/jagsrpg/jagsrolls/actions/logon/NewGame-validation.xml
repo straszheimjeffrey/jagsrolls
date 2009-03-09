@@ -1,0 +1,34 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="name">
+		<field-validator type="requiredstring">
+			<message />
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">32</param>
+			<message />
+		</field-validator>
+	</field>
+	<field name="userPassword">
+		<field-validator type="requiredstring">
+			<message>Password required</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">256</param>
+			<message />
+		</field-validator>
+	</field>
+	<field name="gmPassword">
+		<field-validator type="requiredstring">
+			<message>Password required</message>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">256</param>
+			<message />
+		</field-validator>
+	</field>
+	<validator type="expression">
+		<param name="expression">userPassword != gmPassword</param>
+		<message>The two passwords must be different</message>
+	</validator>
+</validators>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+	<bean type="com.jagsrpg.jagsrolls.beans.GamesContainer" class="com.jagsrpg.jagsrolls.beans.GamesContainerImpl" />
+	<package name="jags-rolls-default" abstract="true" extends="struts-default">
+		<interceptors>
+			<interceptor name="jags-rolls-game"
+				class="com.jagsrpg.jagsrolls.interceptors.PrepareGame" />
+			<interceptor-stack name="jags-rolls-defaultStack">
+				<interceptor-ref name="exception" />
+				<interceptor-ref name="alias" />
+				<interceptor-ref name="servletConfig" />
+				<interceptor-ref name="jags-rolls-game" />
+				<interceptor-ref name="prepare" />
+				<interceptor-ref name="i18n" />
+				<interceptor-ref name="chain" />
+				<interceptor-ref name="debugging" />
+				<interceptor-ref name="profiling" />
+				<interceptor-ref name="scopedModelDriven" />
+				<interceptor-ref name="modelDriven" />
+				<interceptor-ref name="fileUpload" />
+				<interceptor-ref name="checkbox" />
+				<interceptor-ref name="staticParams" />
+				<interceptor-ref name="params">
+					<param name="excludeParams">dojo\..*</param>
+				</interceptor-ref>
+				<interceptor-ref name="conversionError" />
+				<interceptor-ref name="validation">
+					<param name="excludeMethods">input,back,cancel,browse</param>
+				</interceptor-ref>
+				<interceptor-ref name="workflow">
+					<param name="excludeMethods">input,back,cancel,browse</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="jags-rolls-defaultStack" />
+	</package>
+	<package name="jags-rolls-game" namespace="/game" extends="jags-rolls-default">
+		<result-types>
+			<result-type name="string"
+				class="com.jagsrpg.jagsrolls.results.StringResult" default="true" />
+		</result-types>
+		<global-results>
+			<result name="success">OK</result>
+			<result name="error">ERROR</result>
+			<result name="input">ERROR</result>
+		</global-results>
+		<action name="AddRoll" class="com.jagsrpg.jagsrolls.actions.game.AddRoll" />
+		<action name="AddInitRoll" class="com.jagsrpg.jagsrolls.actions.game.AddInitRoll" />
+		<action name="DeleteInitRoll"
+			class="com.jagsrpg.jagsrolls.actions.game.DeleteInitRoll" />
+		<action name="AddAllInit" class="com.jagsrpg.jagsrolls.actions.game.AddAllInit" />
+		<action name="AddReaCost" class="com.jagsrpg.jagsrolls.actions.game.AddReaCost" />
+		<action name="UndoReaCost" class="com.jagsrpg.jagsrolls.actions.game.UndoReaCost" />
+		<action name="ClearRound" class="com.jagsrpg.jagsrolls.actions.game.ClearRound" />
+		<action name="AddCondition" class="com.jagsrpg.jagsrolls.actions.game.AddCondition" />
+		<action name="RemoveCondition"
+			class="com.jagsrpg.jagsrolls.actions.game.RemoveCondition" />
+		<action name="GetResults" class="com.jagsrpg.jagsrolls.actions.game.GetResults">
+			<result>${text}</result>
+		</action>
+	</package>
+	<package name="jags-rolls-logon" extends="jags-rolls-default"
+		namespace="/logon">
+		<action name="NewGameInput">
+			<result>new_game.jsp</result>
+		</action>
+		<action name="NewGame" class="com.jagsrpg.jagsrolls.actions.logon.NewGame">
+			<result type="redirectAction">
+				<param name="actionName">Main</param>
+				<param name="namespace">/</param>
+			</result>
+			<result name="input">new_game.jsp</result>
+			<result name="error">new_game.jsp</result>
+		</action>
+		<action name="LogonInput">
+			<result>logon.jsp</result>
+		</action>
+		<action name="Logon" class="com.jagsrpg.jagsrolls.actions.logon.Logon">
+			<result type="redirectAction">
+				<param name="actionName">Main</param>
+				<param name="namespace">/</param>
+			</result>
+			<result name="input">logon.jsp</result>
+			<result name="error">logon.jsp</result>
+		</action>
+		<action name="AdminLogonInput">
+			<result>admin_logon.jsp</result>
+		</action>
+		<action name="AdminLogon" class="com.jagsrpg.jagsrolls.actions.logon.AdminLogon">
+			<result type="redirectAction">
+				<param name="actionName">ShowGames</param>
+				<param name="namespace">/admin</param>
+			</result>
+			<result name="input">admin_logon.jsp</result>
+			<result name="error">admin_logon.jsp</result>
+		</action>
+	</package>
+	<package name="jags-rolls-admin" extends="jags-rolls-default"
+		namespace="/admin">
+		<global-results>
+			<result name="error" type="redirectAction">
+				<param name="actionName">AdminLogonInput</param>
+				<param name="namespace">/logon</param>
+			</result>
+		</global-results>
+		<action name="ShowGames" class="com.jagsrpg.jagsrolls.actions.admin.ShowGames">
+			<result>show_games.jsp</result>
+		</action>
+		<action name="DeleteGame" class="com.jagsrpg.jagsrolls.actions.admin.DeleteGame">
+			<result type="redirectAction">
+				<param name="actionName">ShowGames</param>
+			</result>
+		</action>
+	</package>
+	<package name="jags-rolls" extends="jags-rolls-default">
+		<global-results>
+			<result name="error" type="redirect">/index.jsp</result>
+		</global-results>
+		<action name="Main" class="com.jagsrpg.jagsrolls.actions.Main">
+			<result>main.jsp</result>
+		</action>
+	</package>
+</struts>
