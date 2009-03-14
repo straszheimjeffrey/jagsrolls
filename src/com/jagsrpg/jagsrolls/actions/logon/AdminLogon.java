@@ -12,7 +12,6 @@ public class AdminLogon extends ActionSupport implements SessionAware {
 
 	private Map<String, Object> session;
 
-	@Override
 	public void setSession(Map session) {
 		this.session = session;
 	}

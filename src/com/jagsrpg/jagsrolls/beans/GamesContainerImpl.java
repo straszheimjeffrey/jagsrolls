@@ -17,7 +17,6 @@ public class GamesContainerImpl implements GamesContainer {
 
 	private double lastGameTime = Long.MIN_VALUE;
 
-	@Override
 	public synchronized GameHolder get(String name) {
 		return gameHolders.get(name);
 	}
@@ -68,7 +67,6 @@ public class GamesContainerImpl implements GamesContainer {
 		gameHolders.remove(name);
 	}
 
-	@Override
 	public synchronized List<String> gameNames() {
 		cleanup();
 		return new ArrayList<String>(gameHolders.keySet());

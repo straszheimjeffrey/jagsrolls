@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -175,10 +175,10 @@ public class Game {
 	 * matches the user and has a current cost of 0.
 	 */
 	private RollListElement getTargetRoll(String name) {
-		Iterator<RollListElement> iter = rolls.descendingIterator();
+		ListIterator<RollListElement> iter = rolls.listIterator(rolls.size());
 		int count = 0;
-		while (iter.hasNext()) {
-			RollListElement el = iter.next();
+		while (iter.hasPrevious()) {
+			RollListElement el = iter.previous();
 			if (!el.isThisRound()) {
 				return null;
 			}
@@ -199,9 +199,9 @@ public class Game {
 	 * This finds the last valid REA cost this round.
 	 */
 	private RollListElement getUndoRoll(String name) {
-		Iterator<RollListElement> iter = rolls.descendingIterator();
-		while (iter.hasNext()) {
-			RollListElement el = iter.next();
+		ListIterator<RollListElement> iter = rolls.listIterator(rolls.size());
+		while (iter.hasPrevious()) {
+			RollListElement el = iter.previous();
 			if (!el.isThisRound()) {
 				return null;
 			}

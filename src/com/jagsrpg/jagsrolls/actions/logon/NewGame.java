@@ -25,7 +25,6 @@ public class NewGame extends ActionSupport implements SessionAware {
 		this.gamesContainer = gamesContainer;
 	}
 
-	@Override
 	public void setSession(Map session) {
 		this.session = session;
 	}
