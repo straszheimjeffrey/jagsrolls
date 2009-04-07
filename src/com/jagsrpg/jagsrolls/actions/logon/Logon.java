@@ -59,18 +59,32 @@ public class Logon extends ActionSupport implements SessionAware {
 	@Override
 	public String execute() throws Exception {
 
-		Comet<Game, String> game = gamesContainer.logon(getName(),
-				getPassword());
+		boolean isAdmin = Boolean.TRUE.equals(session.get("isAdmin"));
 
-		if (game == null) {
-			missingGame();
-			return INPUT;
+		if (isAdmin) {
+			Comet<Game, String> game = gamesContainer.adminLogon(getName());
+
+			if (game == null) {
+				missingGame();
+				return INPUT;
+			}
+
+			session.put("game", game);
+			session.put("isGm", true);
+
+		} else {
+			Comet<Game, String> game = gamesContainer.logon(getName(),
+					getPassword());
+
+			if (game == null) {
+				missingGame();
+				return INPUT;
+			}
+
+			session.put("game", game);
+			session.put("isGm", gamesContainer.isGm(getName(), getPassword()));
+			session.put("isAdmin", false);
 		}
-
-		session.put("game", game);
-		session.put("isGm", gamesContainer.isGm(getName(), getPassword()));
-		session.put("isAdmin", false);
-
 		return SUCCESS;
 	}
 }

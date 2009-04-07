@@ -15,6 +15,8 @@ public interface GamesContainer {
 
 	public Comet<Game, String> logon(String name, String password);
 
+	public Comet<Game, String> adminLogon(String name);
+
 	public boolean isGm(String name, String password);
 
 	public void deleteGame(String name);

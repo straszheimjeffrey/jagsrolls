@@ -1,6 +1,7 @@
 package com.jagsrpg.jagsrolls.beans;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,17 +48,25 @@ public class GamesContainerImpl implements GamesContainer {
 	public synchronized Comet<Game, String> logon(String name, String password) {
 		cleanup();
 		GameHolder candidate = get(name);
+		byte[] digest = GameHolder.computeDigest(password);
 		if (candidate != null
-				&& (candidate.getGmPassword().equals(password) || candidate
-						.getUserPassword().equals(password))) {
+				&& (Arrays.equals(candidate.getGmPassword(), digest) || Arrays
+						.equals(candidate.getUserPassword(), digest))) {
 			return candidate.getGame();
 		}
 		return null;
 	}
 
+	public Comet<Game, String> adminLogon(String name) {
+		cleanup();
+		return get(name).getGame();
+	}
+
 	public synchronized boolean isGm(String name, String password) {
 		GameHolder candidate = get(name);
-		if (candidate != null && candidate.getGmPassword().equals(password)) {
+		byte[] digest = GameHolder.computeDigest(password);
+		if (candidate != null
+				&& Arrays.equals(candidate.getGmPassword(), digest)) {
 			return true;
 		}
 		return false;
@@ -95,4 +104,5 @@ public class GamesContainerImpl implements GamesContainer {
 		}
 		lastGameTime = now;
 	}
+
 }

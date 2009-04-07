@@ -19,14 +19,21 @@
     	</s:if>
     	<s:else>
     	<table id="admin-table">
-    		<tr><th>Name</th><th>GM Password</th><th>Player Password</th><th>Seconds (Minutes)</th></tr>
+    		<tr><th>Name</th><th>Seconds (Minutes)</th></tr>
     		<s:iterator value="games">
     		<s:set name="name" />
     		<s:set name="age" value="getGameHolder(#name).game.age / 1000" />
     		<tr>
-    			<th><s:property value="#name" /></th>
-    			<td><s:property value="getGameHolder(#name).gmPassword" /></td>
-    			<td><s:property value="getGameHolder(#name).userPassword" /></td>
+    			<th>
+    				<s:url action="Logon" namespace="/logon" id="logon_url"
+    											escapeAmp="false" includeParams="get">
+    					<s:param name="password" value="'anything'"/>
+    					<s:param name="name" value="#name"/>
+    				</s:url>
+    				<a href="<s:property value="logon_url"/>">
+    					<s:property value="#name" />
+    				</a>
+    			</th>
     			<td>
     				<s:property value="#age" /> (<s:property value="#age / 60" />)</td>
     			</td>

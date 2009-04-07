@@ -77,7 +77,6 @@ public class NewGame extends ActionSupport implements SessionAware {
 
 		session.put("game", game);
 		session.put("isGm", true);
-		session.put("isAdmin", false);
 
 		return SUCCESS;
 	}
