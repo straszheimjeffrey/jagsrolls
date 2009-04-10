@@ -207,5 +207,13 @@ p.signature {
 	font-style: italic;
 }
 
+#opposed-roll-section th {
+    padding: 2px 4px;
+}
+
+#opposed-roll-section td {
+    text-align: center;
+}
+
 
 

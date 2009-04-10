@@ -564,5 +564,40 @@ $(function () {
 
 });
 
+// Opposed Rolls
+
+function setOpposedResult(result) {
+	$('#opposed-roll-section #result').html(result);	
+}
+
+function getDivisor(min) {
+	if (min <= 20) return 1;
+	if (min <= 100) return 5;
+	if (min <= 200) return 10;
+	min = Math.ceil(min / 500);
+	return 25 * min;
+}
+
+function recalculateOpposedScores() {
+	var left = parseInt($('#left-score').val());
+	var right = parseInt($('#right-score').val());
+	if(isNaN(left) || isNaN(right) || left < 0 || right < 0) {
+		setOpposedResults('&nbsp;');
+	} else {
+		var min = Math.min(left, right);
+		var divisor = getDivisor(min);
+		left = Math.round(left / divisor);
+		right = Math.round(right / divisor);
+		var diff = 10 + left - right;
+		setOpposedResult('' + diff);	
+	}
+}
+
+$(function() {
+	$('#left-score, #right-score').typeWatch({
+		callback : recalculateOpposedScores
+	});
+});
+
 
 

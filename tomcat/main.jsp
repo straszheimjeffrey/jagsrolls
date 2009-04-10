@@ -89,6 +89,27 @@
       </p>
     </div>
     
+    <div id="opposed-roll-section" class="main-section">
+    	<h2>
+    		Opposed Rolls
+    	</h2>
+    	
+    	<form>
+    	<table>
+    	<tr>
+    		<th>Rolling</th>
+    		<th>Resisting</th>
+    		<th>Needed Roll</th>
+    	</tr>
+    	<tr>
+    		<td><input type="text" id="left-score" size="2"></td>
+    		<td><input type="text" id="right-score" size="2"></td>
+    		<td><span id="result">&nbsp;</span></td>
+    	</tr>
+    	</table> 
+    	</form>
+    </div>
+    
     <p class="signature">By Jeffrey Straszheim</p>
     
     <script>
