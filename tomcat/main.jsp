@@ -110,6 +110,55 @@
     	</form>
     </div>
     
+    <div id="wound-effects" class="main-section">
+    	<h2>
+    		Wound Effects
+    	</h2>
+    	
+    	<table>
+    		<tr>
+    			<th>Wound</th>
+    			<th>No Effect</th>
+    			<th>Stunned</th>
+    			<th>Dazed</th>
+    			<th>Unconscious</th>
+    			<th>Internal Damage</th>
+    			<th>Dying</th>
+    			<th>Dead</th>
+    		</tr>
+    		<tr>
+    			<th>Minor</th>
+    			<td>+3 or more</td>
+    			<td>+2 to +0</td>
+    			<td>-1 to -3</td>
+    			<td>-4 to -5</td>
+    			<td>-6 to -10</td>
+    			<td>nil</td>
+    			<td>nil</td>
+    		</tr>
+    		<tr>
+    			<th>Major</th>
+    			<td>+8 or more</td>
+    			<td>+7 to +5</td>
+    			<td>+4 to +3</td>
+    			<td>+2 to -1</td>
+    			<td>-2 to -3</td>
+    			<td>-4 to -5</td>
+    			<td>-6 or worse</td>
+    		</tr>
+    		<tr>
+    			<th>Critial</th>
+    			<td>+10 or more</td>
+    			<td>+9 to +7</td>
+    			<td>+6 to +5</td>
+    			<td>+4 to 0</td>
+    			<td>-1 to -3</td>
+    			<td>-4 to -5</td>
+    			<td>-6 or worse</td>
+    		</tr>
+    	</table>
+    </div>
+    
     <p class="signature">By Jeffrey Straszheim</p>
     
     <script>

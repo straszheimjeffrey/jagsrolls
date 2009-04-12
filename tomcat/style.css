@@ -215,5 +215,14 @@ p.signature {
     text-align: center;
 }
 
+#wound-effects th {
+    padding: 2px 4px;
+}
+
+#wound-effects td {
+    text-align: center;
+    padding: 2px 4px;
+}
+
 
 
