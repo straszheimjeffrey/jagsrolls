@@ -582,7 +582,7 @@ function recalculateOpposedScores() {
 	var left = parseInt($('#left-score').val());
 	var right = parseInt($('#right-score').val());
 	if(isNaN(left) || isNaN(right) || left < 0 || right < 0) {
-		setOpposedResults('&nbsp;');
+		setOpposedResult('&nbsp;');
 	} else {
 		var min = Math.min(left, right);
 		var divisor = getDivisor(min);
